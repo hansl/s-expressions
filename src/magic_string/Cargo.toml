@@ -1,0 +1,7 @@
+[package]
+name = "magic_string"
+version = "0.1.0"
+authors = ["Hans Larsen <hans@larsen.online>"]
+edition = "2018"
+
+[dependencies]
