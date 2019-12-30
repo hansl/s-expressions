@@ -1,137 +1,100 @@
-use crate::chunk::{Chunk, ChunkListIterator};
+use crate::chunk::Chunk;
 use crate::error::Error;
-use std::convert::identity;
-use std::string::FromUtf8Error;
+use crate::MagicBuffer;
 
-pub struct MagicString<'a> {
-    original_content: &'a str,
-    head: Box<Chunk<'a>>,
-}
+pub struct MagicString<'a>(MagicBuffer<'a>);
 
 impl<'a> MagicString<'a> {
-    pub fn new(content: &str) -> MagicString {
-        let original_content = content;
-        MagicString {
-            original_content,
-            head: Box::new(Chunk::from_slice(original_content.as_bytes())),
-        }
-    }
-
-    /// Returns the position in byte of the character i.
-    fn _position_of(&self, i: usize) -> usize {
-        let mut index = 0;
-        for chunk in self.iter() {
-            if i < chunk.end {
-                return index
-                    + self.original_content[chunk.start..chunk.end]
-                        .chars()
-                        .take(i - chunk.start)
-                        .count();
-            }
-            index += self.original_content[chunk.start..chunk.end]
-                .chars()
-                .count();
-        }
-
-        // We're out of bound, just return more (we always assert after using this function)
-        self.original_content.len() + 1
-    }
-
-    unsafe fn _slice(
-        &'a mut self,
-        i: usize,
-    ) -> Result<(*mut Chunk<'a>, *mut Chunk<'a>, &'a mut Self), Error> {
-        let index = self._position_of(i);
-
-        let chunk = self.head.find(index);
-        match chunk {
-            None => Err(Error::IndexOutOfBoundError(i)),
-            Some(ch) => {
-                if index == (*ch).end {
-                    if let Some(ref mut n) = (*ch).next {
-                        return Ok((n.as_ptr(), n.as_ptr(), self));
-                    }
-                }
-
-                let next = (*ch).slice(index)?.as_ptr();
-                Ok((ch, next, self))
-            }
-        }
-    }
-
-    pub(crate) fn iter(&'a self) -> impl Iterator<Item = &'a Chunk<'a>> {
-        ChunkListIterator::new(&self.head)
+    pub fn new(content: &'a str) -> MagicString<'a> {
+        MagicString(MagicBuffer::new(content.as_bytes()))
     }
 
     pub fn len(&self) -> usize {
-        self.iter().fold(0, |a, c| a + c.len())
+        self.0.len()
     }
 
-    pub fn to_string(&self) -> Result<String, FromUtf8Error> {
-        let mut s = String::new();
-        for it in self.iter() {
-            s.push_str(&String::from_utf8(it.to_bytes())?);
+    pub fn to_string(&self) -> Result<String, Error> {
+        return String::from_utf8(self.0.to_bytes()?).map_err(|_| Error::InvalidInternalState);
+    }
+
+    fn get_byte_index(&self, index: usize) -> Option<usize> {
+        Some(index)
+    }
+
+    #[inline]
+    fn do_insert(
+        &mut self,
+        index: usize,
+        content: &str,
+        left: bool,
+        append: bool,
+        essential: bool,
+    ) -> Result<(), Error> {
+        let index = self
+            .get_byte_index(index)
+            .ok_or(Error::IndexOutOfBoundError(index))?;
+
+        let chunk = if left {
+            self.0.chunks.slice(index)?.1
+        } else {
+            self.0.chunks.slice(index)?.0
+        };
+        if append {
+            chunk.append(content.as_bytes(), essential)
+        } else {
+            chunk.prepend(content.as_bytes(), essential)
         }
-        Ok(s)
     }
 
-    pub fn insert_left(&'a mut self, index: usize, content: &str) -> Result<(), Error> {
-        unsafe {
-            (*self._slice(index)?.0).append(content.as_bytes(), false)?;
-        }
-        Ok(())
+    pub fn append_left(&mut self, index: usize, content: &str) -> Result<(), Error> {
+        self.do_insert(index, content, true, true, false)
+    }
+    pub fn prepend_left(&mut self, index: usize, content: &str) -> Result<(), Error> {
+        self.do_insert(index, content, true, false, false)
+    }
+    pub fn append_right(&mut self, index: usize, content: &str) -> Result<(), Error> {
+        self.do_insert(index, content, false, true, false)
+    }
+    pub fn prepend_right(&mut self, index: usize, content: &str) -> Result<(), Error> {
+        self.do_insert(index, content, false, false, false)
+    }
+    pub fn prepend(&mut self, content: &str) -> Result<(), Error> {
+        self.prepend_left(0, content)
+    }
+    pub fn append(&mut self, content: &str) -> Result<(), Error> {
+        self.append_right(self.len(), content)
     }
 
-    pub fn insert_essential_left(&'a mut self, index: usize, content: &str) -> Result<(), Error> {
-        unsafe {
-            (*self._slice(index)?.0).append(content.as_bytes(), true)?;
-        }
-        Ok(())
+    pub fn overwrite(&mut self, start: usize, end: usize, content: &str) -> Result<(), Error> {
+        self.remove(start, end)?;
+        self.append_right(start, content)
     }
 
-    pub fn insert_right(&'a mut self, index: usize, content: &str) -> Result<(), Error> {
+    pub fn remove(&mut self, start: usize, end: usize) -> Result<(), Error> {
         unsafe {
-            (*self._slice(index)?.1).prepend(content.as_bytes(), false)?;
-        }
-        Ok(())
-    }
-
-    pub fn insert_essential_right(&'a mut self, index: usize, content: &str) -> Result<(), Error> {
-        unsafe {
-            (*self._slice(index)?.1).prepend(content.as_bytes(), true)?;
-        }
-        Ok(())
-    }
-
-    pub fn remove(&'a mut self, start: usize, end: usize) -> Result<(), Error> {
-        unsafe {
-            let (_, first, s) = self._slice(start)?;
-            let (_, last, s) = s._slice(end)?;
-
-            //            let first = { self._slice(start)? }.1;
-            //            let last = { self._slice(end)? }.1;
+            let first = self.0.chunks.slice(start)?.1 as *mut Chunk;
+            let last = self.0.chunks.slice(end)?.1 as *mut Chunk;
 
             // First, validate that we're doing something that will not assert.
+            for it in self.0.chunks.iter() {
+                let it = it as *const Chunk;
+                (*it).check(it != first, it != last, it == first)?;
+            }
 
-            //            for it in ChunkListIterator::new(&mut self.head) {
-            //                it.check(it != &*first, it != &*last, it == &*first)?;
-            //            }
+            let mut it = self.0.chunks.iter_mut();
+            while let Some(c) = it.next() {
+                let c = c as *mut Chunk;
+                if c == last {
+                    break;
+                }
+                (*c).remove(c != first, c != last, c == first)?;
+            }
 
-            //
-            //            let mut curr = Some(first);
-            //            while let Some(c) = curr {
-            //                c.remove(c != first, c != last, c == first)?;
-            //
-            //                curr = c.next.map(|x| &mut **x.as_ptr());
-            //                if curr.map_or_else(|| false, |x| x.eq(&last)) {
-            //                    break;
-            //                }
-            //            }
-            //
-            //            if let Some(c) = curr {
-            //                c.remove(true, false, false)?;
-            //            }
-            Ok(())
+            if let Some(c) = it.next() {
+                c.remove(true, false, false)?;
+            }
         }
+
+        Ok(())
     }
 }

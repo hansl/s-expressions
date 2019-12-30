@@ -1,29 +1,4 @@
 use crate::error::Error;
-use std::ptr::NonNull;
-
-pub(crate) struct ChunkListIterator<'a> {
-    current: Option<&'a Chunk<'a>>,
-}
-
-impl<'a> ChunkListIterator<'a> {
-    pub fn new(b: &'a Box<Chunk<'a>>) -> ChunkListIterator<'a> {
-        Self {
-            current: Some(b.as_ref()),
-        }
-    }
-}
-
-impl<'a> Iterator for ChunkListIterator<'a> {
-    type Item = &'a Chunk<'a>;
-
-    fn next(&mut self) -> Option<Self::Item> {
-        self.current.and_then(|chunk| unsafe {
-            let next = (*chunk).next.map(|x| x.as_ptr());
-            self.current = next.map(|x| &*x);
-            self.current
-        })
-    }
-}
 
 struct ChunkIterator<'a> {
     chunk: &'a Chunk<'a>,
@@ -63,20 +38,18 @@ impl<'a> Iterator for ChunkIterator<'a> {
 /// binary data. Because both reuse the same chunk type (this one), this type
 /// is storage agnostic.
 pub(crate) struct Chunk<'a> {
-    left: Option<Vec<u8>>,
-    right: Option<Vec<u8>>,
-    content: Option<&'a [u8]>,
-    original_content: &'a [u8],
-    assert_left: bool,
-    assert_right: bool,
+    pub left: Option<Vec<u8>>,
+    pub right: Option<Vec<u8>>,
+    pub content: Option<&'a [u8]>,
+    pub original_content: &'a [u8],
+    pub assert_left: bool,
+    pub assert_right: bool,
     pub start: usize,
     pub end: usize,
-
-    pub next: Option<NonNull<Chunk<'a>>>,
 }
 
 impl<'a> Chunk<'a> {
-    pub fn from_slice(original_content: &'a [u8]) -> Chunk<'a> {
+    pub fn new(original_content: &'a [u8]) -> Chunk<'a> {
         Chunk {
             left: Some(Vec::new()),
             content: Some(&original_content[..]),
@@ -86,7 +59,6 @@ impl<'a> Chunk<'a> {
             assert_right: false,
             start: 0,
             end: original_content.len(),
-            next: None,
         }
     }
 
@@ -98,7 +70,7 @@ impl<'a> Chunk<'a> {
     }
 
     pub fn len(&self) -> usize {
-        self.iter().fold(0, |acc, i| acc + i.len())
+        self.end - self.start
     }
 
     pub fn to_bytes(&self) -> Vec<u8> {
@@ -113,31 +85,6 @@ impl<'a> Chunk<'a> {
             v.extend_from_slice(r);
         }
         v
-    }
-
-    pub unsafe fn slice(&'a mut self, start: usize) -> Result<&NonNull<Chunk<'a>>, Error> {
-        if start > self.end || start < self.start {
-            return Err(Error::IndexOutOfBoundError(start));
-        }
-
-        let new_chunk = Box::new(Chunk {
-            left: Some(Vec::new()),
-            right: self.right.take(),
-            content: self.content.map(|c| &c[start..self.end]),
-            original_content: self.original_content,
-            assert_left: false,
-            assert_right: self.assert_right,
-            start,
-            end: self.end,
-            next: self.next.take(),
-        });
-
-        self.end = start;
-        self.assert_right = false;
-        let ptr = Box::into_raw(new_chunk);
-        self.next = Some(NonNull::new_unchecked(ptr));
-
-        Ok(self.next.as_ref().unwrap())
     }
 
     pub fn append(&mut self, content: &[u8], essential: bool) -> Result<(), Error> {
@@ -203,17 +150,6 @@ impl<'a> Chunk<'a> {
             self.right = None;
         }
         Ok(())
-    }
-
-    pub unsafe fn find(&'a mut self, index: usize) -> Option<*mut Chunk<'a>> {
-        if index < self.end {
-            Some(self)
-        } else {
-            match self.next {
-                None => None,
-                Some(ref mut c) => c.as_mut().find(index),
-            }
-        }
     }
 }
 

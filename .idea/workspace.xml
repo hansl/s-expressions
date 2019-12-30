@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949f6fef-53fb-4534-970f-3b2dddff5eb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/s-expressions.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/magic_string/src/chunk.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/magic_string/src/error.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/magic_string/src/magic_string.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_string/src/chunk_list.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_string/src/chunk_test.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_string/src/magic_buffer.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_string/src/magic_buffer_test.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/magic_string/src/magic_string_test.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/magic_string/src/chunk.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/magic_string/src/chunk.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/magic_string/src/error.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/magic_string/src/error.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/magic_string/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/magic_string/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/magic_string/src/magic_string.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/magic_string/src/magic_string.rs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,27 +31,36 @@
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/magic_string/src/chunk.rs">
+            <entry file="file://$PROJECT_DIR$/src/magic_string/src/magic_string.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="18">
-                  <caret line="1" selection-start-line="1" selection-end-line="1" />
+                <state relative-caret-position="368">
+                  <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
                   <folding>
-                    <element signature="e#2747#2748#0" expanded="true" />
-                    <element signature="e#2805#2806#0" expanded="true" />
+                    <element signature="e#299#300#0" expanded="true" />
+                    <element signature="e#326#327#0" expanded="true" />
+                    <element signature="e#553#554#0" expanded="true" />
+                    <element signature="e#581#582#0" expanded="true" />
+                    <element signature="e#1867#1868#0" expanded="true" />
+                    <element signature="e#1891#1892#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/magic_string/src/magic_string.rs">
+            <entry file="file://$PROJECT_DIR$/src/magic_string/src/magic_string_test.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="637">
-                  <caret line="108" column="32" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
-                  <folding>
-                    <element signature="e#1935#1936#0" expanded="true" />
-                    <element signature="e#1989#1990#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="846">
+                  <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+                  <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+                  <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+                  <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+                  <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+                  <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+                  <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+                  <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+                  <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+                  <caret line="47" column="23" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
@@ -58,39 +68,17 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/liballoc/string.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="416">
-                  <caret line="1747" column="22" selection-start-line="1747" selection-start-column="13" selection-end-line="1747" selection-end-column="22" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/liballoc/vec.rs">
-              <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="435">
-                  <caret line="1730" column="56" selection-start-line="1730" selection-start-column="56" selection-end-line="1730" selection-end-column="56" />
+                  <caret line="1258" column="14" selection-start-line="1258" selection-start-column="8" selection-end-line="1258" selection-end-column="14" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/liballoc/lib.rs">
+            <entry file="file://$PROJECT_DIR$/src/magic_string/src/error.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="324">
-                  <caret line="18" column="57" lean-forward="true" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/liballoc/collections/btree/set.rs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="481">
-                  <caret line="802" column="32" selection-start-line="802" selection-start-column="32" selection-end-line="802" selection-end-column="32" />
-                  <folding>
-                    <element signature="e#25145#25146#0" expanded="true" />
-                    <element signature="e#25190#25191#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="108">
+                  <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
@@ -100,10 +88,23 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/magic_string/src/magic_buffer.rs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="72">
+                  <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+                  <folding>
+                    <element signature="e#320#321#0" expanded="true" />
+                    <element signature="e#381#382#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/magic_string/src/chunk.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="432">
-                  <caret line="64" column="12" lean-forward="true" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
+                <state relative-caret-position="698">
+                  <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
                   <folding>
                     <element signature="e#1522#1523#0" expanded="true" />
                     <element signature="e#1580#1581#0" expanded="true" />
@@ -113,10 +114,41 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/liballoc/collections/linked_list.rs">
+            <entry file="file://$PROJECT_DIR$/src/magic_string/src/magic_buffer_test.rs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="432">
+                  <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/magic_string/src/chunk_test.rs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="288">
+                  <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/magic_string/src/chunk_list.rs">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="488">
-                  <caret line="172" column="19" selection-start-line="172" selection-start-column="19" selection-end-line="172" selection-end-column="19" />
+                  <caret line="35" selection-start-line="35" selection-end-line="35" />
+                  <folding>
+                    <element signature="e#526#527#0" expanded="true" />
+                    <element signature="e#582#583#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/liballoc/collections/linked_list.rs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="435">
+                  <caret line="926" column="23" selection-start-line="926" selection-start-column="15" selection-end-line="926" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
@@ -125,16 +157,16 @@
             <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/libcore/mem.rs">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="495">
-                  <caret line="496" column="1" lean-forward="true" selection-start-line="496" selection-start-column="1" selection-end-line="496" selection-end-column="1" />
+                  <caret line="496" column="1" selection-start-line="496" selection-start-column="1" selection-end-line="496" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/libcore/option.rs">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="416">
-                  <caret line="621" column="11" selection-start-line="621" selection-start-column="11" selection-end-line="621" selection-end-column="11" />
+                  <caret line="413" column="11" selection-start-line="413" selection-start-column="11" selection-end-line="413" selection-end-column="11" />
                   <folding>
                     <element signature="e#60#61#0" expanded="true" />
                     <element signature="e#77#78#0" expanded="true" />
@@ -169,37 +201,40 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>iterator f</find>
-      <find>iterator fo</find>
-      <find>Some\(</find>
-      <find>Iterator</find>
-      <find>Iterator f</find>
-      <find>Box</find>
-      <find>NonNull</find>
-      <find>it:</find>
-      <find>head:</find>
-      <find>NonN</find>
-      <find>next</find>
-      <find>push</find>
-      <find>push_back</find>
-      <find>into_raw_non_null</find>
-      <find>47</find>
-      <find>ChunkListIterator</find>
-      <find>find</find>
-      <find>self.head</find>
-      <find>into_raw</find>
-      <find>and_</find>
-      <find>drop</find>
-      <find>\(&amp;</find>
-      <find>[a-z]*\(&amp;</find>
-      <find>[a-z]+\(&amp;</find>
-      <find>fn [a-z_0-9]+\(\&amp;</find>
-      <find>from_raw</find>
-      <find>prepen</find>
-      <find>fn [a-z_0-9]+\([^&amp;]</find>
-      <find>slice</find>
       <find>_slice</find>
+      <find>.0</find>
+      <find>fn [a-z_0-9]+\([^&amp;]</find>
+      <find>nonnull</find>
+      <find>str</find>
+      <find>IterMut</find>
+      <find>replace</find>
+      <find>find</find>
+      <find>insert_n</find>
+      <find>\.map</find>
+      <find>\.next</find>
+      <find>self.origin</find>
+      <find>next</find>
+      <find>'b</find>
+      <find>slice</find>
+      <find>peek_m</find>
+      <find>mut self</find>
+      <find>'a</find>
+      <find>&amp;'</find>
+      <find>app</find>
+      <find>ChunkListIterator</find>
+      <find>self._</find>
+      <find>peeke</find>
+      <find>and_</find>
+      <find>take</find>
+      <find>insert</find>
+      <find>self.chunk</find>
+      <find>iter\(</find>
+      <find>len\(</find>
+      <find>Chunk.*new</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
     <dirStrings>
       <dir>$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/liballoc</dir>
     </dirStrings>
@@ -212,10 +247,16 @@
       <list>
         <option value="$PROJECT_DIR$/Cargo.toml" />
         <option value="$PROJECT_DIR$/src/magic_string/Cargo.toml" />
-        <option value="$PROJECT_DIR$/src/magic_string/src/lib.rs" />
+        <option value="$PROJECT_DIR$/src/magic_string/src/list.rs" />
+        <option value="$PROJECT_DIR$/src/magic_string/src/chunk_test.rs" />
         <option value="$PROJECT_DIR$/src/magic_string/src/error.rs" />
+        <option value="$PROJECT_DIR$/src/magic_string/src/lib.rs" />
+        <option value="$PROJECT_DIR$/src/magic_string/src/magic_buffer_test.rs" />
+        <option value="$PROJECT_DIR$/src/magic_string/src/magic_buffer.rs" />
         <option value="$PROJECT_DIR$/src/magic_string/src/chunk.rs" />
+        <option value="$PROJECT_DIR$/src/magic_string/src/chunk_list.rs" />
         <option value="$PROJECT_DIR$/src/magic_string/src/magic_string.rs" />
+        <option value="$PROJECT_DIR$/src/magic_string/src/magic_string_test.rs" />
       </list>
     </option>
   </component>
@@ -323,6 +364,13 @@
             <path>
               <item name="s-expressions" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="core" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="libcore" type="462c0819:PsiDirectoryNode" />
+              <item name="str" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="s-expressions" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
               <item name="std" type="20ee2d1f:SyntheticLibraryElementNode" />
             </path>
             <path>
@@ -351,10 +399,16 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/magic_string/src" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
     <property name="settings.editor.selected.configurable" value="language.rust.rustfmt" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/magic_string/src" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -367,6 +421,82 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager" selected="Cargo Command.Test magic_string_test::basic">
+    <configuration name="Test chunk_test" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="test --package magic_string --lib chunk_test" />
+      <option name="allFeatures" value="false" />
+      <option name="nocapture" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test magic_buffer_test" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="test --package magic_string --lib magic_buffer_test" />
+      <option name="allFeatures" value="false" />
+      <option name="nocapture" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test magic_buffer_test::basic" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="test --package magic_string --lib magic_buffer_test::basic -- --exact" />
+      <option name="allFeatures" value="false" />
+      <option name="nocapture" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test magic_string_test::basic" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="test --package magic_string --lib magic_string_test::basic -- --exact" />
+      <option name="allFeatures" value="false" />
+      <option name="nocapture" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test magic_string_test::magic_string_example" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="test --package magic_string --lib magic_string_test::magic_string_example -- --exact" />
+      <option name="allFeatures" value="false" />
+      <option name="nocapture" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cargo Command.Test magic_string_test::basic" />
+        <item itemvalue="Cargo Command.Test magic_string_test::magic_string_example" />
+        <item itemvalue="Cargo Command.Test magic_buffer_test::basic" />
+        <item itemvalue="Cargo Command.Test magic_buffer_test" />
+        <item itemvalue="Cargo Command.Test chunk_test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="RustProjectSettings">
     <option name="runRustfmtOnSave" value="true" />
@@ -382,12 +512,44 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577482774075</updated>
-      <workItem from="1577482775242" duration="19580000" />
+      <workItem from="1577482775242" duration="39967000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Test_magic_string_test__basic - 2019.12.29 at 21h 24m 28s.xml">
+      <configuration name="Test magic_string_test::basic" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_magic_string_test__magic_string_example - 2019.12.29 at 21h 52m 47s.xml">
+      <configuration name="Test magic_string_test::magic_string_example" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_magic_string_test__magic_string_example - 2019.12.29 at 21h 53m 32s.xml">
+      <configuration name="Test magic_string_test::magic_string_example" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_magic_string_test__magic_string_example - 2019.12.29 at 21h 53m 47s.xml">
+      <configuration name="Test magic_string_test::magic_string_example" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_magic_string_test__magic_string_example - 2019.12.29 at 21h 54m 12s.xml">
+      <configuration name="Test magic_string_test::magic_string_example" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_magic_string_test__basic - 2019.12.29 at 21h 56m 13s.xml">
+      <configuration name="Test magic_string_test::basic" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_magic_string_test__basic - 2019.12.29 at 21h 56m 30s.xml">
+      <configuration name="Test magic_string_test::basic" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_magic_string_test__basic - 2019.12.29 at 21h 56m 49s.xml">
+      <configuration name="Test magic_string_test::basic" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_magic_string_test__basic - 2019.12.29 at 21h 57m 47s.xml">
+      <configuration name="Test magic_string_test::basic" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_magic_string_test__basic - 2019.12.29 at 21h 57m 59s.xml">
+      <configuration name="Test magic_string_test::basic" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19580000" />
+    <option name="totallyTimeSpent" value="39967000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="23" width="2560" height="1417" extended-state="6" />
@@ -398,7 +560,7 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Capture Tool" />
       <window_info id="UI Designer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24980143" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24980143" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" weight="0.32925898" />
@@ -407,7 +569,7 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info active="true" anchor="bottom" x="1280" y="45" width="1280" height="1395" id="Run" order="2" type="WINDOWED" visible="true" weight="0.27043545" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -494,13 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/magic_string/src/lib.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/magic_string/Cargo.toml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -519,31 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/liballoc/lib.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="57" lean-forward="true" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/liballoc/vec.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="1730" column="56" selection-start-line="1730" selection-start-column="56" selection-end-line="1730" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/libcore/iter/traits/iterator.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="90" column="10" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="10" />
-          <folding>
-            <element signature="e#60#61#0" expanded="true" />
-            <element signature="e#84#85#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/libcore/ptr.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="603">
@@ -554,21 +684,7 @@
     <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/libcore/mem.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
-          <caret line="496" column="1" lean-forward="true" selection-start-line="496" selection-start-column="1" selection-end-line="496" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/magic_string/src/error.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/liballoc/collections/linked_list.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="172" column="19" selection-start-line="172" selection-start-column="19" selection-end-line="172" selection-end-column="19" />
+          <caret line="496" column="1" selection-start-line="496" selection-start-column="1" selection-end-line="496" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -576,6 +692,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="531">
           <caret line="194" selection-start-line="193" selection-end-line="194" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/libstd/collections/mod.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="417" column="45" selection-start-line="417" selection-start-column="35" selection-end-line="417" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -590,10 +713,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/libcore/iter/traits/marker.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/libcore/iter/traits/exact_size.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="70" column="10" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/liballoc/collections/linked_list.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="926" column="23" selection-start-line="926" selection-start-column="15" selection-end-line="926" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/libcore/option.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
-          <caret line="621" column="11" selection-start-line="621" selection-start-column="11" selection-end-line="621" selection-end-column="11" />
+          <caret line="413" column="11" selection-start-line="413" selection-start-column="11" selection-end-line="413" selection-end-column="11" />
           <folding>
             <element signature="e#60#61#0" expanded="true" />
             <element signature="e#77#78#0" expanded="true" />
@@ -601,17 +745,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/liballoc/string.rs">
+    <entry file="file://$PROJECT_DIR$/src/magic_string/src/list.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="1747" column="22" selection-start-line="1747" selection-start-column="13" selection-end-line="1747" selection-end-column="22" />
+        <state relative-caret-position="812">
+          <caret line="87" column="5" lean-forward="true" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="5" />
+          <folding>
+            <element signature="e#176#177#0" expanded="true" />
+            <element signature="e#210#211#0" expanded="true" />
+            <element signature="e#597#598#0" expanded="true" />
+            <element signature="e#653#654#0" expanded="true" />
+            <element signature="e#705#706#0" expanded="true" />
+            <element signature="e#765#766#0" expanded="true" />
+            <element signature="e#810#811#0" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/libstd/collections/mod.rs">
+    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/libcore/convert.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="417" column="45" selection-start-line="417" selection-start-column="35" selection-end-line="417" selection-end-column="45" />
+        <state relative-caret-position="423">
+          <caret line="578" column="7" selection-start-line="578" selection-start-column="7" selection-end-line="578" selection-end-column="7" />
+          <folding>
+            <element signature="e#20358#20359#0" expanded="true" />
+            <element signature="e#20377#20378#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/libcore/iter/traits/iterator.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="1665" column="7" lean-forward="true" selection-start-line="1665" selection-start-column="7" selection-end-line="1665" selection-end-column="7" />
+          <folding>
+            <element signature="e#60#61#0" expanded="true" />
+            <element signature="e#84#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/liballoc/vec.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="1730" column="56" selection-start-line="1730" selection-start-column="56" selection-end-line="1730" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/liballoc/lib.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="57" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -626,36 +809,123 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/libcore/convert.rs">
+    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/libcore/result.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
-          <caret line="98" column="13" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
-          <folding>
-            <element signature="e#71#72#0" expanded="true" />
-            <element signature="e#97#98#0" expanded="true" />
-          </folding>
+          <caret line="518" column="11" selection-start-line="518" selection-start-column="11" selection-end-line="518" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/liballoc/borrow.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="170" column="9" selection-start-line="170" selection-start-column="9" selection-end-line="170" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/libcore/str/mod.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="2137" column="17" selection-start-line="2137" selection-start-column="17" selection-end-line="2137" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/magic_string/src/lib.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/magic_string/src/chunk_test.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/magic_string/src/magic_buffer_test.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/magic_string/src/chunk.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="698">
+          <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
           <folding>
-            <element signature="e#2747#2748#0" expanded="true" />
-            <element signature="e#2805#2806#0" expanded="true" />
+            <element signature="e#1522#1523#0" expanded="true" />
+            <element signature="e#1580#1581#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src/liballoc/string.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="1258" column="14" selection-start-line="1258" selection-start-column="8" selection-end-line="1258" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/magic_string/src/magic_buffer.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+          <folding>
+            <element signature="e#320#321#0" expanded="true" />
+            <element signature="e#381#382#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/magic_string/src/chunk_list.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="e#526#527#0" expanded="true" />
+            <element signature="e#582#583#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/magic_string/src/error.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/magic_string/src/magic_string.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="108" column="32" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
+        <state relative-caret-position="368">
+          <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
           <folding>
-            <element signature="e#1935#1936#0" expanded="true" />
-            <element signature="e#1989#1990#0" expanded="true" />
+            <element signature="e#299#300#0" expanded="true" />
+            <element signature="e#326#327#0" expanded="true" />
+            <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#1867#1868#0" expanded="true" />
+            <element signature="e#1891#1892#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/magic_string/src/magic_string_test.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+          <caret line="47" column="23" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
         </state>
       </provider>
     </entry>
